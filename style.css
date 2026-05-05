@@ -1,0 +1,54 @@
+
+/* All styles must be in this external file per project rules */
+.slider-container {
+    position: relative;
+    max-width: 600px; /* Limits the size so it doesn't take the whole page */
+    margin: 40px auto; /* Centers it and adds space */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.slide {
+    display: none; /* Hides all slides by default */
+    width: 100%;
+    animation: fade 0.5s ease-in-out; /* Smooth fade effect */
+}
+
+.slide img {
+    width: 100%;
+    height: 400px; /* Uniform height for all 4 images */
+    object-fit: cover; /* Prevents stretching */
+    display: block;
+}
+
+.active {
+    display: block; /* Shows only the current slide */
+}
+
+/* Button Styling */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev { left: 0; border-radius: 0 3px 3px 0; }
+
+.prev:hover, .next:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Fade animation */
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
