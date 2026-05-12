@@ -124,7 +124,7 @@ html {
 }
 
 body {
-    color: #EAEFEF;
+    color: white;
     margin: 0;
     padding: 20px;
 }
@@ -211,9 +211,7 @@ html, body {
     padding: 0;
 }
 
-.bg-city h1, .bg-city p, .bg-city article {
-    color: beige !important;
-}
+
 
 /* Ensure headings on this page are also beige */
 
