@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-100 p-8">
     <div id="app" class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold mb-6">Contact me </h2>
+        <h2 class="text-2xl font-bold mb-6">Contact me</h2>
         
         <form id="contactForm" action="process.php" method="POST">
             <div class="mb-4">
@@ -46,47 +46,58 @@
                 <label><input type="checkbox" name="terms" id="terms"> I agree to the terms</label>
             </div>
 
-            <div class="flex gap-4">
-                <button type="button" onclick="validateNativeJS()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                    Submit (Native JS)
+            <div class="flex flex-col gap-4">
+                <button type="button" onclick="validateNativeJS()" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
+                    Submit (Native JS Validation)
                 </button>
-                <button type="button" @click="validateVue" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                    Submit (Vue.js)
+
+                <button type="button" @click="validateVue" class="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600">
+                    Submit (Vue.js Validation)
                 </button>
             </div>
         </form>
     </div>
 
     <script>
-        // --- BUTTON 1: Native JavaScript Validation ---
+        // BUTTON 1: Native JavaScript
         function validateNativeJS() {
+            const form = document.getElementById('contactForm');
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const phonePattern = /^\d+$/; // Only digits [cite: 16]
 
             if (email === "" || !emailPattern.test(email)) {
-                alert("Please enter a valid email via Native JS.");
+                alert("Native JS: Please enter a valid email.");
                 return;
             }
-            if (!phonePattern.test(phone)) {
-                alert("Phone must contain only numbers.");
+            if (phone.trim() === "") {
+                alert("Native JS: Phone is required.");
                 return;
             }
-            document.getElementById('contactForm').submit();
+            
+            alert("Native JS Validated! Sending to process.php...");
+            form.submit();
         }
 
-        // --- BUTTON 2: Vue.js Framework Validation ---
+        // BUTTON 2: Vue.js Framework
         const { createApp } = Vue;
         createApp({
             methods: {
                 validateVue() {
                     const email = document.getElementById('email').value;
+                    const terms = document.getElementById('terms').checked;
+                    
                     if (!email.includes('@')) {
                         alert("Vue.js: Invalid Email Format!");
-                    } else {
-                        document.getElementById('contactForm').submit();
+                        return;
                     }
+                    if (!terms) {
+                        alert("Vue.js: You must agree to the terms!");
+                        return;
+                    }
+
+                    alert("Vue.js Validated! Sending to process.php...");
+                    document.getElementById('contactForm').submit();
                 }
             }
         }).mount('#app');

@@ -1,32 +1,70 @@
-
 /* All styles must be in this external file per project rules */
+
+:root {
+    --primary: #2563eb;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --accent: #10b981;
+}
+
+/* Global Reset & Base Styles  */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Cabin', Arial, sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+/*  PAGE VARIATIONS & GLOBAL HELPERS  */
+.bg-green { background-color: #67C090; color: #EAEFEF; }
+.bg-white { background-color: white !important; color: black; }
+.bg-city {
+    background-color: #468432 !important; 
+    color: beige !important;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.bg-city h1 { color: beige; }
+
+#cv {
+    font-size: 25px;
+    font-family: "Cabin", sans-serif;
+    background-color: white;
+}
+
+/* SLIDER VERSION A (Javascript Controlled) */
 .slider-container {
     position: relative;
-    max-width: 600px; /* Limits the size so it doesn't take the whole page */
-    margin: 40px auto; /* Centers it and adds space */
+    max-width: 600px;
+    margin: 40px auto;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    text-align: center;
 }
-
 .slide {
-    display: none; /* Hides all slides by default */
+    display: none;
     width: 100%;
-    animation: fade 0.5s ease-in-out; /* Smooth fade effect */
+    animation: fade 0.5s ease-in-out;
 }
-
 .slide img {
     width: 100%;
-    height: 400px; /* Uniform height for all 4 images */
-    object-fit: cover; /* Prevents stretching */
+    height: 400px;
+    object-fit: cover;
     display: block;
 }
-
-.active {
-    display: block; /* Shows only the current slide */
+.slides img { /* Handles alternate slide syntax */
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
 }
+.active { display: block; }
 
-/* Button Styling */
+/* Buttons for Slider A */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -39,29 +77,22 @@
     font-size: 20px;
     transition: 0.3s;
 }
-
 .next { right: 0; border-radius: 3px 0 0 3px; }
 .prev { left: 0; border-radius: 0 3px 3px 0; }
+.prev:hover, .next:hover { background: rgba(0, 0, 0, 0.9); }
 
-.prev:hover, .next:hover {
-    background: rgba(0, 0, 0, 0.9);
-}
-
-/* Fade animation */
 @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+    from { opacity: .4; } 
+    to { opacity: 1; }
 }
 
-/* Container styling */
+/*  SLIDER VERSION B / ABOUT LAYOUT  */
 .about-container {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
     text-align: center;
 }
-
-/* Slider Box */
 .slider-wrapper {
     position: relative;
     overflow: hidden;
@@ -69,16 +100,12 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     background-color: #f3f4f6;
 }
-
-/* Image behavior (Responsive) */
 .slider-image {
     width: 100%;
-    height: 400px; /* Fixed height for desktop */
+    height: 400px;
     object-fit: cover;
     display: block;
 }
-
-/* Navigation Buttons */
 .nav-btn {
     position: absolute;
     top: 50%;
@@ -90,15 +117,10 @@
     cursor: pointer;
     border-radius: 50%;
 }
-
 .prev-btn { left: 15px; }
 .next-btn { right: 15px; }
+.nav-btn:hover { background: rgba(0, 0, 0, 0.8); }
 
-.nav-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Counter Style */
 .image-counter {
     position: absolute;
     bottom: 15px;
@@ -110,219 +132,24 @@
     font-size: 14px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .slider-image {
-        height: 250px; /* Shorter height for mobile phones */
-    }
-}
-/* GLOBAL STYLES */
-html {
-    font-size: 25px;
-    background-color: #67C090;
-    font-family: "Cabin", sans-serif;
-}
-
-body {
-    color: white ;
-    margin: 0;
-    padding: 20px;
-}
-
-/* CUSTOM BUTTONS (To replace your inline styles) */
-.nav-button {
-    font-size: 25px;
-    border-radius: 25px;
-    padding: 10px 20px;
-    background-color: white;
-    color: #333;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 0;
-}
-
-.nav-button:hover {
-    background-color: #f0f0f0;
-}
-/* --- EXISTING GLOBAL STYLES --- */
-#cv{
-    font-size: 25px;
-    font-family: "Cabin", sans-serif;
-    background-color: white;
-}
-
-/* --- PAGE VARIATIONS --- */
-.bg-green { background-color: #67C090; color: #EAEFEF; }
-.bg-white { background-color: white; color: black; }
-
-/* --- CV SPECIFIC STYLES --- */
-.photo2 {
-    position: absolute;
-    top: 10px; /* Adjusted slightly so it doesn't touch the very edge */
-    right: 10px;
-    width: 150px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-/* --- BUTTON STYLES --- */
-.nav-button {
-    font-size: 25px;
-    border-radius: 25px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-/* --- Global Reset --- */
-html, body {
-    
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-}
-
-/* --- Background Options --- */
-.bg-intro { 
-    background-color: #67C090; 
-    color: #EAEFEF; 
-}
-
-.bg-white { 
-    background-color: white !important; 
-    color: black; 
-}
-
-/* --- CV Photo Style --- */
-.photo2 {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 150px;
-    border-radius: 8px;
-}
-/* --- CITY PAGE STYLES --- */
-/* Specific class for the City Page */
-/* DELETE YOUR OLD 'html' OR 'body' BACKGROUND RULES AND PASTE THIS: */
-.bg-city {
-    background-color: #468432 !important; 
-    color: beige !important;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-
-
-/* Ensure headings on this page are also beige */
-
-
-
-.bg-city h1 {
-    color: beige;
-}
-
-
-.slider-container {
-    max-width: 100%;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.slides img {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.api-grid {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
-
-.api-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 250px;
-    padding: 10px;
-    text-align: center;
-    background-color: white;
-    color: black;
-}
-
-.api-img {
-    width: 100%;
-    border-radius: 5px;
-}
-.interests-container {
-    padding: 20px;
-    text-align: center;
-}
-
-.api-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.api-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 15px;
-    width: 280px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    color: #333;
-}
-
-.info-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #468432;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Responsive adjustment */
-@media (max-width: 600px) {
-    .api-card {
-        width: 100%;
-    }
-}/* --- Global Fix --- */
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #67C090; 
-    font-family: Arial, sans-serif;
-}
-
-/* --- Interests Page Styles --- */
+/*  INTERESTS / API GRID SECTION  */
 .interests-container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
     text-align: center;
 }
-
 .main-title {
     color: #333;
     font-size: 2rem;
     margin-bottom: 10px;
 }
-
 .api-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     margin-top: 30px;
 }
-
 .api-card {
     background: #fff;
     border: 1px solid #eee;
@@ -331,19 +158,159 @@ html, body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
-
-.api-card:hover {
-    transform: translateY(-5px);
-}
-
-.api-card img {
+.api-card:hover { transform: translateY(-5px); }
+.api-card img, .api-img {
     width: 100%;
     border-radius: 10px;
     height: 150px;
     object-fit: cover;
 }
-
 .api-card h3 {
     margin: 15px 0 5px;
-    color: #468432; /* Using a professional green for titles */
+    color: #468432;
+}
+.info-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #468432;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*  MAIN NAVIGATION BAR */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-logo {
+    font-family: 'Michroma', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--primary); }
+.login-btn {
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+/*  HERO SECTION & MAIN LAYOUT */
+.hero {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    padding: 100px 10%;
+    text-align: center;
+}
+.hero h1 { font-size: 3rem; margin: 0; }
+.subtitle { font-size: 1.2rem; opacity: 0.9; }
+
+.container { padding: 50px 10%; }
+.info-section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.image-box img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* NAVIGATION CARDS & BUTTONS  */
+.grid-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.nav-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s, border-color 0.3s;
+}
+.nav-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+.nav-card h3 { color: var(--primary); margin-top: 0; }
+
+.nav-button {
+    font-size: 25px;
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+}
+.nav-button:hover { background-color: #f0f0f0; }
+
+.photo2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
+
+/*  RESPONSIVENESS (Emergency Mobile Fix for SAÜ Submission) */
+@media (max-width: 600px) {
+    html, body {
+        background-color: #f8fafc !important; 
+        overflow-x: hidden; 
+        width: 100%;
+    }
+    .slider-image {
+        height: 250px; 
+    }
+    .main-nav {
+        flex-direction: column; 
+        padding: 10px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        font-size: 14px;
+    }
+    .hero {
+        padding: 40px 5%; 
+    }
+    .info-section {
+        flex-direction: column; 
+        text-align: center;
+    }
+    .api-card {
+        width: 100%;
+    }
 }
